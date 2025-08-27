@@ -4,13 +4,12 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace SignalR.EntityLayer.Entities
+namespace SignalR.DtoLayer.CategoryDto
 {
-    public class Category
+    public class ResultCategoryDto
     {
         public int CategoryId { get; set; }
         public string CategoryName { get; set; }
         public bool CategoryStatus { get; set; }
-       
     }
 }

@@ -6,7 +6,7 @@ namespace SignalRApi.Mapping
 {
     public class AboutMapping : Profile
     {
-        protected AboutMapping()
+        public AboutMapping()
         {
             CreateMap<About,ResultAboutDto>().ReverseMap();
             CreateMap<About,CreateAboutDto>().ReverseMap();

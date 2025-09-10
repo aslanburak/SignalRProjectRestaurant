@@ -1,15 +1,18 @@
+using Microsoft.Extensions.DependencyInjection;
 using SignalR.BusinessLayer.Abstract;
 using SignalR.BusinessLayer.Concrete;
 using SignalR.DataAccessLayer.Abstract;
+using SignalR.DataAccessLayer.Concrete;
 using SignalR.DataAccessLayer.EntityFramework;
-
+using System.Reflection;
+using AutoMapper;
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 
 builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
-builder.Services.AddEndpointsApiExplorer();
+builder.Services.AddEndpointsApiExplorer(); 
 builder.Services.AddSwaggerGen();
 
 builder.Services.AddScoped<IAboutService,AboutManager>();
@@ -39,8 +42,9 @@ builder.Services.AddScoped<ISocialMediaDal, EfSocialMediaDal>();
 builder.Services.AddScoped<ITestimonialService, TestimonialManager>();
 builder.Services.AddScoped<ITestimonialDal,EfTestimonialDal>();
 
-builder.Services.AddAutoMapper(typeof(Program));
 
+builder.Services.AddDbContext<SignalRContext>();
+builder.Services.AddAutoMapper(Assembly.GetExecutingAssembly());
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.

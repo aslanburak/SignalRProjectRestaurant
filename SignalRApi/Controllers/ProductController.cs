@@ -1,7 +1,9 @@
 ﻿using AutoMapper;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using SignalR.BusinessLayer.Abstract;
+using SignalR.DataAccessLayer.Concrete;
 using SignalR.DtoLayer.ProductDto;
 using SignalR.EntityLayer.Entities;
 
@@ -34,7 +36,7 @@ namespace SignalRApi.Controllers
             _productService.TAdd(value);
             return Ok("Ekleme Başarılı");
         }
-        [HttpDelete]
+        [HttpDelete("{id}")]
         public IActionResult DeleteProduct(int id)
         {
             var value = _productService.TGetById(id);
@@ -54,5 +56,14 @@ namespace SignalRApi.Controllers
             var value = _productService.TGetById(id);
             return Ok(_mapper.Map<GetProductDto>(value));
         }
-    }
+
+		[HttpGet("ProductListWithCategory")]
+		public IActionResult ProductListWithCategory()
+		{
+			var context = new SignalRContext();
+			var values = context.Products.Include(x => x.Category);
+			var items = _mapper.Map<List<ResultProductWithCategory>>(values);
+			return Ok(items.ToList());
+		}
+	}
 }

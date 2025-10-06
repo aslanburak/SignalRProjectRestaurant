@@ -1,0 +1,60 @@
+﻿@model SignalRWebUI.Dtos.ProductDtos.CreateProductDto
+@{
+	ViewData["Title"] = "CreateCategory";
+	Layout = "~/Views/AdminLayout/Index.cshtml";
+}
+
+<div class="content">
+	<div class="container-fluid">
+		<h4 class="page-title">Ürün Ekleme</h4>
+		<div class="row">
+			<div class="col-md-12">
+				<form method="post">
+					<div class="card">
+
+						<div class="card-body">
+							<div class="form-group">
+								<label for="productname">Ürün Adı</label>
+								<input type="text" class="form-control" asp-for="ProductName" id="productyname">
+							</div>
+						</div>
+						<div class="card-body">
+							<div class="form-group">
+								<label for="price">Fiyatı</label>
+								<input type="text" class="form-control" asp-for="Price" id="price">
+							</div>
+						</div>
+						<div class="card-body">
+							<div class="form-group">
+								<label for="imageurl">Ürün Görseli</label>
+								<input type="text" class="form-control" asp-for="ImageUrl" id="imageurl">
+							</div>
+						</div>
+
+						<div class="card-body">
+							<div class="form-group">
+								<label for="categoryname">Ürün Kategorisi</label>
+								@Html.DropDownListFor(x => x.CategoryId, (List<SelectListItem>)ViewBag.v, new { @class = "form-control" })
+							</div>
+						</div>
+
+						<div class="card-body">
+							<div class="form-group">
+								<label for="description">Ürün Açıklamasını Giriniz</label>
+								<input type="text" class="form-control" asp-for="Description" id="description">
+							</div>
+						</div>
+
+
+						<div class="card-action">
+							<button class="btn btn-primary">Ekle</button>
+
+						</div>
+					</div>
+				</form>
+			</div>
+
+		</div>
+	</div>
+</div>
+

@@ -35,8 +35,8 @@ namespace SignalRApi.Controllers
             _aboutService.TAdd(value);
             return Ok("Ekleme Başarılı");
         }
-        [HttpDelete]
-        public IActionResult DeleteAbout(int id)
+		[HttpDelete("{id}")]
+		public IActionResult DeleteAbout(int id)
         {
             var value = _aboutService.TGetById(id);
             _aboutService.TDelete(value);

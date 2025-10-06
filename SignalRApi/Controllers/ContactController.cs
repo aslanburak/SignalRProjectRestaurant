@@ -34,7 +34,7 @@ namespace SignalRApi.Controllers
             _contactService.TAdd(value);
             return Ok("Ekleme Başarılı");
         }
-        [HttpDelete]
+        [HttpDelete("{id}")]
         public IActionResult DeleteContact(int id)
         {
             var value = _contactService.TGetById(id);

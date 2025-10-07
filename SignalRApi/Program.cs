@@ -7,6 +7,15 @@ using SignalR.DataAccessLayer.EntityFramework;
 using System.Reflection;
 using AutoMapper;
 var builder = WebApplication.CreateBuilder(args);
+builder.Services.AddCors(opt =>
+{
+    opt.AddPolicy("CorsPolicy", builder =>
+	{
+		builder.AllowAnyHeader().AllowAnyMethod().AllowCredentials().SetIsOriginAllowed((host)=>true);
+	
+});
+
+builder.Services.AddSignalR();
 
 // Add services to the container.
 
@@ -53,6 +62,7 @@ if (app.Environment.IsDevelopment())
     app.UseSwagger();
     app.UseSwaggerUI();
 }
+app.UseCors("CorsPolicy");
 
 app.UseHttpsRedirection();
 

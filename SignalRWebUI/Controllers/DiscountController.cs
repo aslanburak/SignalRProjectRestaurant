@@ -79,7 +79,7 @@ namespace SignalRWebUI.Controllers
 		}
 
 
-		[HttpDelete]
+		
 		public async Task<IActionResult> DeleteDiscount(int id)
 		{
 			var client = _httpClientFactory.CreateClient();

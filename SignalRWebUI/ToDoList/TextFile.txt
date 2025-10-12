@@ -6,9 +6,9 @@
 --Kategori Adına Göre Ürün Sayısı1+
 --Kategori Adına Göre Ürün Sayısı2+
 
---Ortalama Fiyat
---En Yüksek Ürünlü Fiyat
---En Düşük Ürünlü Fiyat
+--Ortalama Fiyat+
+--En Yüksek Ürünlü Fiyat+
+--En Düşük Ürünlü Fiyat9+
 --Ortalama Hamburger Fiyatı
 
 --Toplam Sipariş Sayısı

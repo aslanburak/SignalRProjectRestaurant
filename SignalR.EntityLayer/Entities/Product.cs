@@ -16,6 +16,7 @@ namespace SignalR.EntityLayer.Entities
         public bool ProductStatus { get; set; }
         public Category Category { get; set; }
         public int CategoryId { get; set; }
+        public List<OrderDetail> OrderDetails { get; set; }
 
 
 

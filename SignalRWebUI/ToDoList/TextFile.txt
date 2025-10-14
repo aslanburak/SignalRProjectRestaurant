@@ -11,10 +11,10 @@
 --En Düşük Ürünlü Fiyat9+
 --Ortalama Hamburger Fiyatı-
 
---Toplam Sipariş Sayısı+
---Aktif Sipariş Sayısı+
---Son Sipariş tutarı
---Kasadaki Tutar
---Bugünkü kazanç
---Masa Sayısı
+--Toplam Sipariş Sayısı +
+--Aktif Sipariş Sayısı +
+--Son Sipariş tutarı +
+--Kasadaki Tutar -
+--Bugünkü kazanç +
+--Masa Sayısı +
 

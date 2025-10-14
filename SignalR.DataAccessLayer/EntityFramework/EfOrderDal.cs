@@ -28,6 +28,22 @@ namespace SignalR.DataAccessLayer.EntityFramework
 			return context.Orders.OrderByDescending(o => o.OrderId).Take(1).Select(o => o.TotalPrice).FirstOrDefault();
 		}
 
+		public decimal TodayTotalPrice()
+		{
+			using var con = new SignalRContext();
+			// Bugünün başlangıcı (00:00)
+			var today = DateTime.Today;
+
+			// Yarın (bugünün bitişi)
+			var tomorrow = today.AddDays(1);
+
+			// Bugünün toplam tutarı
+			var total = con.Orders
+						   .Where(o => o.OrderDate >= today && o.OrderDate < tomorrow && o.Description=="Hesap Kapatıldı")
+						   .Sum(o => (decimal?)o.TotalPrice) ?? 0;
+			return total;
+		}
+
 		public int TotalOrderCount()
 		{
 			using var context = new SignalRContext();

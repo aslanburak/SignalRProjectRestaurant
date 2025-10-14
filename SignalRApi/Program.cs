@@ -58,6 +58,9 @@ builder.Services.AddScoped<IOrderDal, EfOrderDal>();
 builder.Services.AddScoped<IOrderDetailService, OrderDetailManager>();
 builder.Services.AddScoped<IOrderDetailDal, EfOrderDetailDal>();
 
+builder.Services.AddScoped<IMoneyCaseService, MoneyCaseManager>();
+builder.Services.AddScoped<IMoneyCaseDal, EfMoneyCaseDal>();
+
 
 builder.Services.AddDbContext<SignalRContext>();
 builder.Services.AddAutoMapper(Assembly.GetExecutingAssembly());

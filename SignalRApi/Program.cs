@@ -7,6 +7,7 @@ using SignalR.DataAccessLayer.EntityFramework;
 using System.Reflection;
 using AutoMapper;
 using SignalRApi.Hubs;
+using SignalRApi.Hubs.SignalRApi.Hubs;
 var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddCors(opt =>
 {

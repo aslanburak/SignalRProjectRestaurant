@@ -2,11 +2,11 @@
 
 namespace SignalRWebUI.ViewComponents.DefaultComponents
 {
-    public class _DefaultSliderComponentPartial:ViewComponent
+    public class _DefaultBookATableComponentPartial:ViewComponent
     {
         public IViewComponentResult Invoke()
         {
             return View();
         }
-    }
+    }    
 }

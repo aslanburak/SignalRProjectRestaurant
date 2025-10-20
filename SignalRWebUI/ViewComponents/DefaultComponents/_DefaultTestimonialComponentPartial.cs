@@ -2,7 +2,7 @@
 
 namespace SignalRWebUI.ViewComponents.DefaultComponents
 {
-    public class _DefaultSliderComponentPartial:ViewComponent
+    public class _DefaultTestimonialComponentPartial:ViewComponent
     {
         public IViewComponentResult Invoke()
         {

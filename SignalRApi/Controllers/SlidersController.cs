@@ -1,6 +1,8 @@
-﻿using Microsoft.AspNetCore.Http;
+﻿using AutoMapper;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using SignalR.BusinessLayer.Abstract;
+using SignalR.DtoLayer.SliderDto;
 
 namespace SignalRApi.Controllers
 {
@@ -9,15 +11,19 @@ namespace SignalRApi.Controllers
     public class SlidersController : ControllerBase
     {
         private readonly ISliderService _sliderService;
+        
+
         public SlidersController(ISliderService sliderService)
         {
             _sliderService = sliderService;
+           
         }
+
         [HttpGet]
         public IActionResult SliderList()
         {
-            var values = _sliderService.TGetList();
-            return Ok(values);
+            var value = _sliderService.TGetList();
+            return Ok(value);
         }
 
     }

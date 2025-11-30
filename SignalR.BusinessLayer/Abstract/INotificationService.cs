@@ -12,5 +12,8 @@ namespace SignalR.BusinessLayer.Abstract
         int TNotificationCountByStatusFalse();
         List<Notification> TGetAllNotificationByFalse();
 		void TUpdate(Discount value);
+
+		void TNotificationStatusChangeToTrue(int id); //bildirim türünü true yapar
+		void TNotificationStatusChangeToFalse(int id);
 	}
 }

@@ -11,5 +11,7 @@ namespace SignalR.DataAccessLayer.Abstract
     {
         int NotificationCountByStatusFalse();
         List<Notification> GetAllNotificationByFalse();
-    }
+        void NotificationStatusChangeToTrue(int id); //bildirim türünü true yapar
+		void NotificationStatusChangeToFalse(int id);
+	}
 }

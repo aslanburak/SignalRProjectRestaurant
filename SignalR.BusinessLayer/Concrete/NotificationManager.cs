@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace SignalR.BusinessLayer.Concrete
 {
-    public class NotificationManager : INotificationService
+	public class NotificationManager : INotificationService
     {
         private readonly INotificationDal _notificationDal;
 
@@ -49,9 +49,24 @@ namespace SignalR.BusinessLayer.Concrete
 
         }
 
-        public void TUpdate(Notification entity)
+		public void TNotificationStatusChangeToFalse(int id)
+		{
+			_notificationDal.NotificationStatusChangeToFalse(id);
+		}
+
+		public void TNotificationStatusChangeToTrue(int id)
+		{
+			_notificationDal.NotificationStatusChangeToTrue(id);
+		}
+
+		public void TUpdate(Notification entity)
         {
           _notificationDal.Update(entity);
         }
-    }
+
+		public void TUpdate(Discount value)
+		{
+			throw new NotImplementedException();
+		}
+	}
 }

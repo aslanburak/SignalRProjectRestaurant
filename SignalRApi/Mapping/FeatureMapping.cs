@@ -8,9 +8,9 @@ namespace SignalRApi.Mapping
     {
         public FeatureMapping()
         {
-            CreateMap<Feature, ResultFeatureDto>().ReverseMap();
+            CreateMap<Feature, ResultNotificationDto>().ReverseMap();
             CreateMap<Feature, CreateFeatureDto>().ReverseMap();
-            CreateMap<Feature, UpdateFeatureDto>().ReverseMap();
+            CreateMap<Feature, UpdateNotificationDto>().ReverseMap();
             CreateMap<Feature, GetFeatureDto>().ReverseMap();
 
         }

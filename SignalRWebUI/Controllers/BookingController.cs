@@ -30,11 +30,13 @@ namespace SignalRWebUI.Controllers
 			}
 			return View();
 		}
+
 		[HttpGet]
 		public IActionResult CreateBooking()
 		{
 			return View();
 		}
+
 		[HttpPost]
 		public async Task<IActionResult> CreateBooking(CreateBookingDto createBookingDto)
 		{

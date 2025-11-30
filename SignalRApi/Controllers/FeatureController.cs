@@ -23,7 +23,7 @@ namespace SignalRApi.Controllers
         [HttpGet]
         public IActionResult FeatureList()
         {
-            var values = _mapper.Map<List<ResultFeatureDto>>(_featureService.TGetList()); // _featureService.TGetList() List<Feature> döner
+            var values = _mapper.Map<List<ResultNotificationDto>>(_featureService.TGetList()); // _featureService.TGetList() List<Feature> döner
             return Ok(values);
         }
 
@@ -42,7 +42,7 @@ namespace SignalRApi.Controllers
             return Ok("Silme Başarılı");
         }
         [HttpPut]
-        public IActionResult UpdateFeature(UpdateFeatureDto updateFeatureDto)
+        public IActionResult UpdateFeature(UpdateNotificationDto updateFeatureDto)
         {
             var value = _mapper.Map<Feature>(updateFeatureDto);
             _featureService.TUpdate(value);

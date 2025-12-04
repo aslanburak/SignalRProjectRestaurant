@@ -1,10 +1,11 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore;
 using SignalR.EntityLayer.Entities;
 
 namespace SignalR.DataAccessLayer.Concrete
 {
-    public class SignalRContext: DbContext
-    {
+    public class SignalRContext: IdentityDbContext<AppUser,AppRole,int> //int → Hem kullanıcıların hem rollerin Id tipi
+	{
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             optionsBuilder.UseSqlServer("Server=(localdb)\\MSSQLLocalDB; initial Catalog=SignalRDb; integrated Security=true ");

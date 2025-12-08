@@ -46,6 +46,8 @@
                                         <th>Rezervasyon Durumu</th>
                                         <th>Sil</th>
                                         <th>Güncelle</th>
+                                        <th>Onayla</th>
+                                        <th>İptal Et</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -55,13 +57,15 @@
 
                         tablehtml += `
                                 <tr>
-                                    <td>${item.bookingId}</td>
+                                    <th>${index+1}</th>
                                     <td>${item.name}</td>
                                     <td>${item.phone}</td>
                                     <td>${item.personCount}</td>
                                     <td>Rezervasyon Alındı</td>
                                     <td><a href="/Booking/DeleteBooking/${item.bookingId}" class="btn btn-outline-danger">Sil</a></td>
                                     <td><a href="/Booking/UpdateBooking/${item.bookingId}" class="btn btn-outline-success">Güncelle</a></td>
+                                    <td><a href="/Booking/UpdateBooking/${item.bookingId}" class="btn btn-outline-info">Onayla</a></td>
+                                    <td><a href="/Booking/UpdateBooking/${item.bookingId}" class="btn btn-outline-dark">İptal Et</a></td>
                                 </tr>
                             `;
                     });

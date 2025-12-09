@@ -89,7 +89,7 @@ namespace SignalRWebUI.Controllers
 			var responseMessage = await client.PutAsync("https://localhost:7031/api/Contact", stringContent);
 			if (responseMessage.IsSuccessStatusCode)
 			{
-				return RedirectToAction("UpdateContact");
+				return RedirectToAction("Index");
 			}
 			return View();
 		}

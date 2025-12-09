@@ -28,7 +28,7 @@
 
                     setInterval(() => {
                         connection.invoke("GetBookingList");
-                    }, 2000);
+                    }, 1000);
 
                 }).catch((err) => { console.log(err) });
 
@@ -61,11 +61,11 @@
                                     <td>${item.name}</td>
                                     <td>${item.phone}</td>
                                     <td>${item.personCount}</td>
-                                    <td>Rezervasyon Alındı</td>
+                                    <td>${item.description}</td>
                                     <td><a href="/Booking/DeleteBooking/${item.bookingId}" class="btn btn-outline-danger">Sil</a></td>
                                     <td><a href="/Booking/UpdateBooking/${item.bookingId}" class="btn btn-outline-success">Güncelle</a></td>
-                                    <td><a href="/Booking/UpdateBooking/${item.bookingId}" class="btn btn-outline-info">Onayla</a></td>
-                                    <td><a href="/Booking/UpdateBooking/${item.bookingId}" class="btn btn-outline-dark">İptal Et</a></td>
+                                                <td><a href="/Booking/BookingStatusApproved/${item.bookingId}" class="btn btn-outline-info">Onayla</a></td>
+                                                <td><a href="/Booking/BookingStatusCancelled/${item.bookingId}" class="btn btn-outline-dark">İptal Et</a></td>
                                 </tr>
                             `;
                     });

@@ -30,6 +30,7 @@ namespace SignalRApi.Controllers
         [HttpPost]
         public IActionResult CreateDiscount(CreateDiscountDto createDiscountDto)
         {
+            createDiscountDto.Status = false;
             var value = _mapper.Map<Discount>(createDiscountDto);
             _discountService.TAdd(value);
             return Ok("Ekleme Başarılı");
@@ -44,6 +45,7 @@ namespace SignalRApi.Controllers
         [HttpPut]
         public IActionResult UpdateDiscount(UpdateDiscountDto updateDiscountDto)
         {
+            updateDiscountDto.Status = false;
             var value = _mapper.Map<Discount>(updateDiscountDto);
             _discountService.TUpdate(value);
             return Ok("Güncelleme Başarılı");
@@ -54,5 +56,21 @@ namespace SignalRApi.Controllers
             var value = _discountService.TGetById(id);
             return Ok(_mapper.Map<GetDiscountDto>(value));
         }
+
+
+        [HttpGet("ChangeStatusToTrue/{id}")]
+        public IActionResult ChangeStatusToTrue(int id)
+        {
+            _discountService.TChangeStatusToTrue(id);
+            return Ok("İndirim durumu aktif edildi.");
+        }
+        [HttpGet("ChangeStatusToFalse/{id}")]
+        public IActionResult ChangeStatusToFalse(int id)
+        {
+            _discountService.TChangeStatusToFalse(id);
+            return Ok("İndirim durumu pasif edildi.");
+        }
+
+      
     }
 }

@@ -54,8 +54,24 @@ namespace SignalRApi.Controllers
         {
             var value = _bookingService.TGetById(id);
             return Ok(_mapper.Map<GetBookingDto>(value));
-        }       
+        }
 
-        
+        [HttpGet("BookingStatusApproved/{id}")]
+        public IActionResult BookingStatusApproved(int id)
+        {
+            _bookingService.TBookingStatusApproved(id);
+            return Ok("Rezervasyon Onaylandı");
+        }
+
+
+        [HttpGet("BookingStatusCancelled/{id}")]
+        public IActionResult BookingStatusCancelled(int id)
+        {
+            _bookingService.TBookingStatusCancelled(id);
+            return Ok("Rezervasyon İptal Edildi");
+        }
+        //void BookingStatusApproved(int id);
+        //void BookingStatusCancelled(int id);
+
     }
 }

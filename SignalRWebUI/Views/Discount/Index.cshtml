@@ -19,7 +19,7 @@
 							<thead>
 								<tr>
 									<th scope="col">#</th>
-									<th scope="col">Ürün</th>
+									<th scope="col">Ürün Başlığı</th>
 									<th scope="col">İndirim Oranı</th>
 									<th scope="col">Durum</th>
 									<th scope="col">Düzenle</th>
@@ -29,7 +29,7 @@
 								@foreach (var item in Model)
 								{
 									<tr>
-										<td>@item.DiscountId</td>
+										<th>@item.DiscountId</th>
 										<td>@item.Title</td>
 										<td>@item.Amount</td>
 										<td>

@@ -39,7 +39,7 @@ namespace SignalRWebUI.Controllers
 			var jsonData = JsonConvert.SerializeObject(createSocialMediaDto);
 			StringContent stringContent = new StringContent(jsonData, Encoding.UTF8, "application/json");
 
-			var responseMessage = client.PostAsync("http://localhost:7031/api/SocialMedia", stringContent).Result;
+			var responseMessage = client.PostAsync("https://localhost:7031/api/SocialMedia", stringContent).Result;
 			if (responseMessage.IsSuccessStatusCode)
 			{
 				return RedirectToAction("Index");
@@ -47,5 +47,45 @@ namespace SignalRWebUI.Controllers
 			return View();
 		}
 
-	}
+        public async Task<IActionResult> DeleteSocialMedia(int id)
+        {
+            var client = _httpClientFactory.CreateClient();
+            var responseMessage = await client.DeleteAsync($"https://localhost:7031/api/SocialMedia/{id}");
+            if (responseMessage.IsSuccessStatusCode)
+            {
+                return RedirectToAction("Index");
+            }
+            return View();
+        }
+        [HttpGet]
+        public async Task<IActionResult> UpdateSocialMedia(int id)
+        {
+            var client = _httpClientFactory.CreateClient();
+            var responseMessage = await client.GetAsync($"https://localhost:7031/api/SocialMedia/{id}");
+            if (responseMessage.IsSuccessStatusCode)
+            {
+                var jsonData = await responseMessage.Content.ReadAsStringAsync();
+                var values = JsonConvert.DeserializeObject<UpdateSocialMediaDto>(jsonData);
+                return View(values);
+            }
+            return View();
+        }
+
+
+        [HttpPost]
+        public async Task<IActionResult> UpdateSocialMedia(UpdateSocialMediaDto updateSocialMediaDto)
+        {
+            var client = _httpClientFactory.CreateClient();
+            var jsonData = JsonConvert.SerializeObject(updateSocialMediaDto);
+            StringContent content = new StringContent(jsonData, Encoding.UTF8, "application/json");
+            var responseMessage = await client.PutAsync($"https://localhost:7031/api/SocialMedia/", content);
+
+            if (responseMessage.IsSuccessStatusCode)
+            {
+                return RedirectToAction("Index");
+            }
+            return View();
+        }
+
+    }
 }

@@ -34,7 +34,7 @@ namespace SignalRApi.Controllers
             _socialMediaService.TAdd(value);
             return Ok("Ekleme Başarılı");
         }
-        [HttpDelete]
+        [HttpDelete("{id}")]
         public IActionResult DeleteSocialMedia(int id)
         {
             var value = _socialMediaService.TGetById(id);

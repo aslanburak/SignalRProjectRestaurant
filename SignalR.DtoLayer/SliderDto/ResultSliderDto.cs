@@ -8,12 +8,12 @@ namespace SignalR.DtoLayer.SliderDto
 {
     public class ResultSliderDto
     {
-        public int SliderID { get; set; }
-        public string Title1 { get; set; }
-        public string Title2 { get; set; }
-        public string Title3 { get; set; }
-        public string Description1 { get; set; }
-        public string Description2 { get; set; }
-        public string Description3 { get; set; }
-    }
+		public int SliderId { get; set; }
+		public String Title1 { get; set; }
+		public String Title2 { get; set; }
+		public String Title3 { get; set; }
+		public String Description1 { get; set; }
+		public String Description2 { get; set; }
+		public String Description3 { get; set; }
+	}
 }
